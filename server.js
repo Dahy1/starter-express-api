@@ -3,7 +3,7 @@ const app = express();
 require("dotenv").config();
 const port = process.env.PORT || 3010;
 const { sendEmail } = require("./mailer");
-
+app.use(cors());
 app.use(express.json()); // Parse JSON requests
 app.use(express.urlencoded({ extended: true }));
 app.get("/", (req, res) => {
