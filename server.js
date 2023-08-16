@@ -1,12 +1,14 @@
 const express = require("express");
 const app = express();
 require("dotenv").config();
+const cors = require("cors");
 const port = process.env.PORT || 3010;
 const { sendEmail } = require("./mailer");
 
 app.use(express.json()); // Parse JSON requests
 app.use(express.urlencoded({ extended: true }));
 
+app.use(cors());
 app.get("/", (req, res) => {
   res.send("Run /send-email to send test email");
 });
