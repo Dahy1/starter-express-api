@@ -5,7 +5,7 @@ const port = process.env.PORT || 3010;
 const { sendEmail } = require("./mailer");
 
 app.use(express.json()); // Parse JSON requests
-
+app.use(express.urlencoded({ extended: true }));
 app.get("/", (req, res) => {
   res.send("Run /send-email to send test email");
 });
