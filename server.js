@@ -14,6 +14,7 @@ const SENDER_EMAIL_ID = process.env.EMAIL_TO;
 
 app.post("/send-email", async (req, res) => {
   try {
+     console.log("Received form data:", req.body);
     const { name, email, subject, message } = req.body;
 
     if (!name || !email || !subject || !message) {
